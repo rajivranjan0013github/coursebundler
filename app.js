@@ -1,12 +1,15 @@
 import express from "express";
 const app = express();
 import { config } from "dotenv";
+import cors from "cors";
 
 config({
   path: "./config/config.env",
 });
 
 app.use(express.json());
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("hello");
